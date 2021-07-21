@@ -1,0 +1,6 @@
+
+-> Gerar relatório no terminal
+coverage run --source=src -m pytest --verbose && coverage report -m
+
+-> Gerar paniga de Report Coverage
+coverage run --source=src -m pytest --verbose && coverage html -d coverage_html
