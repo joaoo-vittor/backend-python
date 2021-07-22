@@ -7,7 +7,7 @@ from src.presenters.helpers import HttpRequest
 faker = Faker()
 
 
-def test_handle():
+def test_route():
     """Testing Handle method"""
 
     find_user_use_case = FindUserSpy(UserRepositorySpy())
@@ -16,7 +16,7 @@ def test_handle():
         query={"user_id": faker.random_number(), "user_name": faker.word()}
     )
 
-    response = find_user_controller.handler(http_request)
+    response = find_user_controller.route(http_request)
 
     # Testing inputs
     assert (
@@ -40,7 +40,7 @@ def test_handle_no_query_param():
     find_user_controller = FindUserController(find_user_use_case)
     http_request = HttpRequest()
 
-    response = find_user_controller.handler(http_request)
+    response = find_user_controller.route(http_request)
 
     # Testing inputs
     assert find_user_use_case.by_id_and_name_param == {}

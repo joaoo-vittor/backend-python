@@ -23,7 +23,7 @@ def test_route():
         },
     }
 
-    response = register_pet_route.router(HttpRequest(body=attribute))
+    response = register_pet_route.route(HttpRequest(body=attribute))
 
     # testing input
     assert register_pet_use_case.registry_param["name"] == attribute["name"]
